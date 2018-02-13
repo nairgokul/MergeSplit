@@ -32,20 +32,20 @@ class MergeSplit:
 	N2=None
 	
 	def __init__(self,N,N1,P0,d,Pm):
-		self.P0=P0
-		self.N=N
-		self.N1=N1
-		self.d=d
-		self.Pm=Pm
+		self.P0=P0 #Base Split rate
+		self.N=N #Total Population 
+		self.N1=N1 #Type-I population
+		self.d=d #delta
+		self.Pm=Pm #Merge rate
 		self.N2=N-N1
 
 
 def main():
-	for delta in [10,14,16,20]:
+	for delta in [10,14,16,20]: #Edit delta in this list
 		print (delta)
 		start=time.time()
 		tmax=100
-		m = MergeSplit(100,25,1,delta,5)
+		m = MergeSplit(100,25,1,delta,5) #Enter the values of N,N1,P0,delta,Pm here
 		pop = m.N
 		Wi = [[0 for j in xrange(0,i+1)] for i in xrange(0,pop+1)]
 		Wf = [[0 for j in xrange(0,i+1)] for i in xrange(0,pop+1)]
